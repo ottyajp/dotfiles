@@ -27,6 +27,7 @@ echo
 echo creating symbolic links
 for f in .??*;do
   [[ "$f" == ".git" ]] && continue
+  [[ "$f" == ".gitignore" ]] && continue
   [[ "$f" == ".gitmodules" ]] && continue
   rm -f ~/$f
   echo $f
