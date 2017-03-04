@@ -24,6 +24,10 @@ setopt correct
 zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
+# cd option
+setopt AUTO_CD
+cdpath=(.. ~)
+
 # syntax highlighting
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
