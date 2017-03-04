@@ -14,7 +14,11 @@ git --version >/dev/null 2>&1
 if [ $? -ne 0 ]; then
   echo no
   if [ "$dist_name" == "arch" ];then
-    sudo pacman -S git
+    if [ `whoami` = 'root' ]; then
+      pacman -S git
+    else
+      sudo pacman -S git
+    fi
   else
     echo please install git
     exit 2
