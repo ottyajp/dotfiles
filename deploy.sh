@@ -1,7 +1,6 @@
 #!/bin/bash
 
 cd $HOME
-PWD=`pwd`
 
 echo -n checking distribution... 
 export dist_name
@@ -36,6 +35,6 @@ for f in .??*;do
   [[ "$f" == ".gitmodules" ]] && continue
   rm -f ~/$f
   echo $f
-  ln -s ${PWD}/$f ~/$f
+  ln -s ${HOME}/$f ~/$f
 done
 
