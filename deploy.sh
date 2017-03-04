@@ -23,6 +23,7 @@ echo downloading...
 git clone --recursive https://github.com/ottyajp/dotfiles.git ./dotfiles
 cd ./dotfiles
 
+echo
 echo creating symbolic links
 for f in .??*;do
   [[ "$f" == ".git" ]] && continue
