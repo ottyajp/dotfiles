@@ -20,8 +20,13 @@ else
 fi
 
 echo downloading...
-git clone --recursive https://github.com/ottyajp/dotfiles.git ./dotfiles
-cd ./dotfiles
+if [ -e ~/dotfiles ];then
+  cd ~/dotfiles
+  git pull
+else
+  git clone --recursive https://github.com/ottyajp/dotfiles.git ./dotfiles
+  cd ./dotfiles
+fi
 
 echo
 echo creating symbolic links
