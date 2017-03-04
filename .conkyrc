@@ -1,0 +1,74 @@
+alignment top_right
+gap_x 0
+gap_y 0
+
+double_buffer yes
+background yes
+
+default_color 001155 
+default_outline_color white
+default_shade_color gray
+
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+
+use_xft yes
+#xftfont TakaoGothic:style=Regular:size=12
+xftfont Ricty-Regular:size=12
+
+override_utf8_locale yes
+out_to_console no
+out_to_stderr no
+extra_newline no
+
+update_interval 1.0
+uppercase no
+
+show_graph_scale yes
+show_graph_range no
+
+own_window yes
+own_window_class Conky
+own_window_type normal
+own_window_hints undecorated,below,skip_taskbar,skip_pager,sticky
+own_window_transparent no
+own_window_colour 553355
+own_window_argb_visual yes
+own_window_argb_value 50
+
+cpu_avg_samples 4
+
+TEXT
+$nodename
+$sysname $kernel $machine
+$hr
+Uptime: $uptime
+Load average: $loadavg
+Processes: $processes Running: $running_processes
+CPU Frequency: ${freq_g}GHz
+CPU Usage: ${cpu cpu0}%
+        ${cpugraph cpu0 -l}
+RAM Usage: $mem/$memmax
+        $membar
+Swap Usage: $swap/$swapmax
+        $swapbar
+$hr
+File systems:
+/ ${fs_used /}/${fs_size /}
+        ${fs_bar 6 /}
+        ${diskiograph}
+$hr
+${if_existing /proc/net/route wlp2s0}Networking:
+ wlp2s0: ${addr wlp2s0}
+  ESSID: ${wireless_essid wlp2s0}
+  speed: ${wireless_bitrate wlp2s0}
+  Quality: ${wireless_link_qual_perc wlp2s0}% ${wireless_link_bar wlp2s0}
+ Up: ${upspeed wlp2s0} - Down: ${downspeed wlp2s0}
+ ${upspeedgraph wlp2s0 28,100} ${downspeedgraph wlp2s0 28,100}
+${endif}${if_existing /proc/net/route enp4s0}Networking:
+ enp4s0: ${addr enp4s0}
+ Up: ${upspeed enp4s0} - Down: ${downspeed enp4s0}
+ ${upspeedgraph enp4s0 28,100} ${downspeedgraph enp4s0 28,100}
+${endif}
