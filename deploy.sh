@@ -13,7 +13,10 @@ echo $dist_name
 echo -n checking git... 
 git --version >/dev/null 2>&1
 if [ $? -ne 0 ]; then
+  echo no
   [[ "$dist_name" == "arch" ]] && sudo pacman -S git
+else
+  echo ok
 fi
 
 echo downloading...
