@@ -27,7 +27,7 @@ echo creating symbolic links
 for f in .??*;do
   [[ "$f" == ".git" ]] && continue
   [[ "$f" == ".gitmodules" ]] && continue
-  rm -f $f
+  rm -f ~/$f
   echo $f
   ln -s ${PWD}/$f ~/$f
 done
