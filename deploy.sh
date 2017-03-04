@@ -44,6 +44,6 @@ for f in .??*;do
   [[ "$f" == ".gitmodules" ]] && continue
   rm -f ~/$f
   echo $f
-  ln -s ${HOME}/$f ~/$f
+  ln -s `pwd`/$f ~/$f
 done
 
