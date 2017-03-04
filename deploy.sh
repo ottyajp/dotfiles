@@ -11,13 +11,14 @@ fi
 echo $dist_name
 
 echo -n checking git... 
-git --version >/dev/null
+git --version >/dev/null 2>&1
 if [ $? -ne 0 ]; then
   [[ "$dist_name" == "arch" ]] && sudo pacman -S git
 fi
 
 echo downloading...
 git clone --recursive https://github.com/ottyajp/dotfiles.git ./dotfiles
+cd ./dotfiles
 
 echo creating symbolic links
 for f in .??*;do
