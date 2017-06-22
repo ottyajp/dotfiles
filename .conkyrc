@@ -50,6 +50,7 @@ Processes: $processes Running: $running_processes
 CPU Frequency: ${freq_g}GHz
 CPU Usage: ${cpu cpu0}%
         ${cpugraph cpu0 -l}
+CPU Temp: ${execi 5 sensors | grep 'Core 0' | cut -c16-22}
 RAM Usage: $mem/$memmax
         $membar
 Swap Usage: $swap/$swapmax
