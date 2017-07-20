@@ -16,7 +16,7 @@ draw_shades no
 
 use_xft yes
 #xftfont TakaoGothic:style=Regular:size=12
-xftfont Ricty-Regular:size=12
+xftfont Ricty-Regular:size=16
 
 override_utf8_locale yes
 out_to_console no
