@@ -69,16 +69,3 @@ endif
 
 filetype plugin indent on
 
-"TweetVim
-"Bundle 'basyura/TweetVim'
-"Bundle 'mattn/webapi-vim'
-"Bundle 'basyura/twibill.vim'
-"Bundle 'tyru/open-browser.vim'
-"Bundle 'h1mesuke/unite-outline'
-"Bundle 'basyura/bitly.vim'
-"Bundle 'Shougo/unite.vim'
-
-
-
-
-
