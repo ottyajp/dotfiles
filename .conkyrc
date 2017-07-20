@@ -50,7 +50,7 @@ Processes: $processes Running: $running_processes
 CPU Frequency: ${freq_g}GHz
 CPU Usage: ${cpu cpu0}%
         ${cpugraph cpu0 -l}
-CPU Temp: ${execi 5 sensors | grep 'Core 0' | cut -c16-22}
+CPU Temp: ${execi 5 sensors | grep 'Core 0' | cut -c17-23}
 RAM Usage: $mem/$memmax
         $membar
 Swap Usage: $swap/$swapmax
@@ -61,13 +61,13 @@ File systems:
         ${fs_bar 6 /}
         ${diskiograph}
 $hr
-${if_existing /proc/net/route wlp2s0}Networking:
- wlp2s0: ${addr wlp2s0}
-  ESSID: ${wireless_essid wlp2s0}
-  speed: ${wireless_bitrate wlp2s0}
-  Quality: ${wireless_link_qual_perc wlp2s0}% ${wireless_link_bar wlp2s0}
- Up: ${upspeed wlp2s0} - Down: ${downspeed wlp2s0}
- ${upspeedgraph wlp2s0 28,100} ${downspeedgraph wlp2s0 28,100}
+${if_existing /proc/net/route wlp58s0}Networking:
+ wlp2s0: ${addr wlp58s0}
+  ESSID: ${wireless_essid wlp58s0}
+  speed: ${wireless_bitrate wlp58s0}
+  Quality: ${wireless_link_qual_perc wlp58s0}% ${wireless_link_bar wlp58s0}
+ Up: ${upspeed wlp58s0} - Down: ${downspeed wlp58s0}
+ ${upspeedgraph wlp58s0 28,100} ${downspeedgraph wlp58s0 28,100}
 ${endif}${if_existing /proc/net/route enp4s0}Networking:
  enp4s0: ${addr enp4s0}
  Up: ${upspeed enp4s0} - Down: ${downspeed enp4s0}
