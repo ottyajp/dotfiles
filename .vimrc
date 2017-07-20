@@ -1,19 +1,73 @@
 set nocompatible
 filetype off
 
-set rtp+=${HOME}/.vim/dein.vim/
+let s:dein_dir = expand('~/dotfiles/.vim')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-"call vundle#begin()
+execute 'set runtimepath^=' . s:dein_repo_dir
 
-"Plugin 'gmarik/Vundle.vim'
+call dein#begin(s:dein_dir)
+
+call dein#add('Shougo/dein.vim')
 
 "ALE (Asynchronous Lint Engine)
-"Plugin 'https://github.com/w0rp/ale'
-"let g:ale_statusline_format = ['E%d', 'W%d', '']
-"nmap <silent> <C>j <Plug>(ale_next_wrap)
-"nmap <silent> <C>k <Plug>(ale_previous_wrap)
+call dein#add('w0rp/ale')
+let g:ale_statusline_format = ['E%d', 'W%d', '']
+nmap <silent> <C>j <Plug>(ale_next_wrap)
+nmap <silent> <C>k <Plug>(ale_previous_wrap)
 
-"call vundle#end()
+"TreeView :NERDTree
+call dein#add('scrooloose/nerdtree')
+"NERDTree shortcut
+noremap <silent><C-e> :NERDTreeToggle<CR>
+
+"to comment out easily Shift+V => Ctrl+- *2
+call dein#add('tomtom/tcomment_vim')
+
+"Color settings
+call dein#add('tomasr/molokai')
+syntax on
+colorscheme molokai
+hi Comment ctermfg=gray
+
+"coloring to indents
+call dein#add('nathanaelkane/vim-indent-guides')
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level=1
+let g:indent_guides_auto_colors=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=darkgreen
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkblue
+let g:indent_guides_color_change_percent=30
+let g:indent_guides_guide_size=1
+
+"tab width setting
+set ts=2 sw=2 sts=0
+set expandtab
+
+"Display line number and Highlight cursor line
+set number
+set cursorline
+hi clear CursorLine
+hi CursorLine ctermbg=darkred
+
+"Status line settings
+call dein#add('itchyny/lightline.vim')
+set laststatus=2
+let g:lightline = {'colorscheme':'wombat',}
+if !has('gui_running')
+  set t_Co=256
+endif
+
+"Background
+call dein#add('miyakogi/seiya.vim')
+let g:seiya_auto_enable=1
+
+call dein#end()
+if dein#check_install()
+  call dein#install()
+endif
+
+filetype plugin indent on
 
 "TweetVim
 "Bundle 'basyura/TweetVim'
@@ -24,51 +78,7 @@ set rtp+=${HOME}/.vim/dein.vim/
 "Bundle 'basyura/bitly.vim'
 "Bundle 'Shougo/unite.vim'
 
-"TreeView :NERDTree
-"Bundle 'scrooloose/nerdtree'
-"NERDTree shortcut
-"noremap <silent><C-e> :NERDTreeToggle<CR>
 
-"to comment out easily Shift+V => Ctrl+- *2
-"Bundle 'tomtom/tcomment_vim'
 
-"Color settings
-"Bundle 'tomasr/molokai'
-"syntax on
-"colorscheme molokai
-"hi Comment ctermfg=gray
 
-"coloring to indents
-"Bundle 'nathanaelkane/vim-indent-guides'
-"let g:indent_guides_enable_on_vim_startup=1
-"let g:indent_guides_start_level=1
-"let g:indent_guides_auto_colors=0
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=darkgreen
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkblue
-"let g:indent_guides_color_change_percent=30
-"let g:indent_guides_guide_size=1
-
-"tab width setting
-"set ts=2 sw=2 sts=0
-"set expandtab
-
-"Display line number and Highlight cursor line
-"set number
-"set cursorline
-"hi clear CursorLine
-"hi CursorLine ctermbg=darkred
-
-"Status line settings
-"Plugin 'itchyny/lightline.vim'
-"set laststatus=2
-"let g:lightline = {'colorscheme':'wombat',}
-"if !has('gui_running')
-"  set t_Co=256
-"endif
-
-"Background
-"Bundle 'miyakogi/seiya.vim'
-"let g:seiya_auto_enable=1
-
-"filetype plugin indent on
 

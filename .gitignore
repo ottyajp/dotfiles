@@ -1,2 +1,6 @@
 *.swp
+.vim/.cache
+.vim/repos/*
+!.vim/repos/github.com/Shougo/dein.vim
+
 
