@@ -68,8 +68,8 @@ ${if_existing /proc/net/route wlp58s0}Networking:
   Quality: ${wireless_link_qual_perc wlp58s0}% ${wireless_link_bar wlp58s0}
  Up: ${upspeed wlp58s0} - Down: ${downspeed wlp58s0}
  ${upspeedgraph wlp58s0 28,100} ${downspeedgraph wlp58s0 28,100}
-${endif}${if_existing /proc/net/route enp4s0}Networking:
- enp4s0: ${addr enp4s0}
- Up: ${upspeed enp4s0} - Down: ${downspeed enp4s0}
- ${upspeedgraph enp4s0 28,100} ${downspeedgraph enp4s0 28,100}
+${endif}${if_existing /proc/net/route enp0s20f0u2u4}Networking:
+ enp0s20f0u2u4: ${addr enp0s20f0u2u4}
+ Up: ${upspeed enp0s20f0u2u4} - Down: ${downspeed enp0s20f0u2u4}
+ ${upspeedgraph enp0s20f0u2u4 28,100} ${downspeedgraph enp0s20f0u2u4 28,100}
 ${endif}
