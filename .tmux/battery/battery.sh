@@ -11,7 +11,7 @@ percentage=`echo ${cur} ${ful} | awk '{printf ("%3.0f", $1/$2*100)}'`
 
 remaintime=`bat time | awk '{print $4}'`
 remainunit=`bat time | awk '{print $5}'`
-
+remain=\(${remaintime}${remainunit}\)
 color=
 if echo $state | grep 'discharging'; then
   state=''
@@ -23,7 +23,8 @@ fi
 if echo $percentage | grep '100'; then
   state='❇'
   color='#[fg=colour46]'
+  remain='Full'
 fi
 
 color2='#[fg=colour225]'
-echo ${color}${percentage}% \(${remaintime}${remainunit}\) $state ${color2}
+echo ${color}${percentage}% ${remain} $state ${color2}
