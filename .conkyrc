@@ -59,6 +59,8 @@ $hr
 File systems:
 / ${fs_used /}/${fs_size /}
         ${fs_bar 6 /}
+/tmp ${fs_used /tmp}/${fs_size /tmp}
+        ${fs_bar 6 /tmp}
         ${diskiograph}
 $hr
 ${if_existing /proc/net/route wlp58s0}Networking:
