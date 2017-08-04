@@ -7,9 +7,9 @@ install() {
     echo no
     if [ "$dist_name" == "arch" ];then
       if [ `whoami` = 'root' ]; then
-        sh -c "pacman -S $1"
+        sh -c "pacman -S $1 --noconfirm"
       else
-        sh -c "sudo pacman -S $1"
+        sh -c "sudo pacman -S $1 --noconfirm"
       fi
     else
       echo please install $1 manually 
