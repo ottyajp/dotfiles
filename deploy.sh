@@ -15,9 +15,9 @@ if [ $? -ne 0 ]; then
   echo no
   if [ "$dist_name" == "arch" ];then
     if [ `whoami` = 'root' ]; then
-      pacman -S git
+      sh -c 'pacman -S git'
     else
-      sudo pacman -S git
+      sh -c 'sudo pacman -S git'
     fi
   else
     echo please install git
