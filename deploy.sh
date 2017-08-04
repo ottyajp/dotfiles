@@ -34,7 +34,7 @@ install zsh
 chsh -s `which zsh`
 install tmux
 
-echo downloading...
+echo downloading dotfiles
 if [ -e ~/dotfiles ];then
   cd ~/dotfiles
   git pull
