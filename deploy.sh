@@ -33,6 +33,7 @@ install git
 install zsh
 chsh -s `which zsh`
 install tmux
+install vim
 
 echo downloading dotfiles
 if [ -e ~/dotfiles ];then
