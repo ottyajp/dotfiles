@@ -50,7 +50,11 @@ for f in .??*;do
   [[ "$f" == ".git" ]] && continue
   [[ "$f" == ".gitignore" ]] && continue
   [[ "$f" == ".gitmodules" ]] && continue
-  rm -f ~/$f
+  if [ -d $f ]; then
+    rm -Rf ~/$f
+  else
+    rm -f ~/$f
+  fi
   echo $f
   ln -s `pwd`/$f ~/$f
 done
