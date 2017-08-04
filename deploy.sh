@@ -47,3 +47,17 @@ for f in .??*;do
   ln -s `pwd`/$f ~/$f
 done
 
+echo
+echo installing zsh, and tmux.
+if [ "$dist_name" == "arch" ];then
+  if [ `whoami` = 'root' ]; then
+    sh -c 'pacman -S zsh tmux'
+  else
+    sh -c 'sudo pacman -S zsh tmux'
+  fi
+else
+  echo please install git
+  exit 2
+fi
+chsh -s `which zsh`
+
