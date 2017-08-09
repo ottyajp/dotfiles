@@ -1,5 +1,25 @@
 #!/bin/bash
 
+install() {
+  echo -n checking $1... 
+  which $1 >/dev/null 2>&1
+  if [ $? -ne 0 ]; then
+    echo no
+    if [ "$dist_name" == "arch" ];then
+      if [ `whoami` = 'root' ]; then
+        sh -c "pacman -S $1 --noconfirm"
+      else
+        sh -c "sudo pacman -S $1 --noconfirm"
+      fi
+    else
+      echo please install $1 manually 
+      exit 2
+    fi
+  else
+    echo ok
+  fi
+}
+
 cd $HOME
 
 echo -n checking distribution... 
@@ -9,25 +29,13 @@ if [ -e /etc/arch-release ]; then
 fi
 echo $dist_name
 
-echo -n checking git... 
-git --version >/dev/null 2>&1
-if [ $? -ne 0 ]; then
-  echo no
-  if [ "$dist_name" == "arch" ];then
-    if [ `whoami` = 'root' ]; then
-      pacman -S git
-    else
-      sudo pacman -S git
-    fi
-  else
-    echo please install git
-    exit 2
-  fi
-else
-  echo ok
-fi
+install git
+install zsh
+chsh -s `which zsh`
+install tmux
+install vim
 
-echo downloading...
+echo downloading dotfiles
 if [ -e ~/dotfiles ];then
   cd ~/dotfiles
   git pull
@@ -42,7 +50,11 @@ for f in .??*;do
   [[ "$f" == ".git" ]] && continue
   [[ "$f" == ".gitignore" ]] && continue
   [[ "$f" == ".gitmodules" ]] && continue
-  rm -f ~/$f
+  if [ -d $f ]; then
+    rm -Rf ~/$f
+  else
+    rm -f ~/$f
+  fi
   echo $f
   ln -s `pwd`/$f ~/$f
 done
