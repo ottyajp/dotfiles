@@ -4,4 +4,6 @@ if [[ -d "$HOME/.zsh/conf.d" ]]; then
   done
 fi
 
-
+if [ -z $TMUX ]; then
+  tmux
+fi
