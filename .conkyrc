@@ -64,7 +64,7 @@ File systems:
         ${diskiograph}
 $hr
 ${if_existing /proc/net/route wlp58s0}Networking:
- wlp2s0: ${addr wlp58s0}
+ wlp58s0: ${addr wlp58s0}
   ESSID: ${wireless_essid wlp58s0}
   speed: ${wireless_bitrate wlp58s0}
   Quality: ${wireless_link_qual_perc wlp58s0}% ${wireless_link_bar wlp58s0}
