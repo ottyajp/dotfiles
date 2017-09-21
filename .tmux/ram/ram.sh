@@ -2,5 +2,6 @@
 
 ram=`free | grep Mem | awk '{print $3/$2*100}'`
 swap=`free | grep Swap | awk '{print $3/$2*100}'`
+color='#[fg=colour106]'
 
-echo RAM:${ram}% SWAP:${swap}%
+echo ${color}RAM:${ram}% SWAP:${swap}%
