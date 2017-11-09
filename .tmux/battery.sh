@@ -4,6 +4,7 @@ function bat() {
   echo `upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep ${1}`
 }
 
+~/.tmux/is_laptop.sh && echo "" && exit
 state=`bat state | awk '{print $2}'`
 cur=`bat energy | awk '{print $2}'`
 ful=`bat energy-full | awk '{print $2}'`
