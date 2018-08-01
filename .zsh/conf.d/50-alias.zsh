@@ -7,3 +7,6 @@ alias sudo='sudo -E'
 alias vi='vim'
 alias ping='prettyping'
 alias lpr='lpr -o fit-to-page'
+
+alias conda2='/opt/anaconda2/bin/conda'
+
