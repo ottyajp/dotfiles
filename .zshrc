@@ -4,6 +4,11 @@ if [[ -d "$HOME/.zsh/conf.d" ]]; then
   done
 fi
 
-if [ -z $TMUX ]; then
-  tmux
+tmux ls >/dev/null
+if [ $? -eq 1 -a -z "$TMUX" ]; then
+  exec tmux
+elif [ -z $TMUX ]; then
+  exec tmux attach
+else
+  echo "sessions should be nested with care."
 fi
