@@ -1,15 +1,3 @@
-# memo
-function memo(){
-  if [[ $# -eq 0 ]] ; then
-    memotxt=" "
-  else 
-    for str in $@; do
-      memotxt="${memotxt} ${str}"
-    done
-  fi
-  set_prompt
-}
-
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
